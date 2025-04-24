@@ -1,0 +1,20 @@
+{
+  "name": "Tasfiqul Alam Pabel - Developer & Photographer",
+  "short_name": "Pabel Portfolio",
+  "icons": [
+    {
+      "src": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/programmer-IPls7h7TIvYX6CfeeeNkJ9SFLAHzk8.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/programmer-IPls7h7TIvYX6CfeeeNkJ9SFLAHzk8.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#1a1a2e",
+  "background_color": "#1a1a2e",
+  "display": "standalone",
+  "start_url": "/"
+}
