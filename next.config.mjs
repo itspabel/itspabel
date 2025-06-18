@@ -7,17 +7,28 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    domains: [
-      'images.unsplash.com',
-      'cdn.pixabay.com',
-      'randomuser.me',
-      'cdn.jsdelivr.net',
-      'hebbkx1anhila5yf.public.blob.vercel-storage.com'
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.pixabay.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'randomuser.me',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.jsdelivr.net',
+      },
+      {
+        protocol: 'https',
+        hostname: 'hebbkx1anhila5yf.public.blob.vercel-storage.com',
+      }
     ],
-    unoptimized: true,
-  },
-  env: {
-    CUSTOM_KEY: process.env.CUSTOM_KEY,
   },
   // Security headers
   async headers() {
