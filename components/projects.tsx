@@ -7,11 +7,11 @@ import ProjectCard from "./project-card"
 const projects = [
   {
     id: 1,
-    title: "Bangladeshi Music Player",
-    description: "Minimalist web music player featuring top Bangladeshi artists with YouTube integration",
-    image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=2070&auto=format&fit=crop",
-    tags: ["React", "YouTube API", "Tailwind CSS", "Music"],
-    link: "/projects/music-player",
+    title: "AI Image Enhancer",
+    description: "AI-powered image enhancement with upscaling, deblurring, and noise reduction",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2070&auto=format&fit=crop",
+    tags: ["React", "AI", "Image Processing", "Tailwind CSS"],
+    link: "/projects/image-enhancer",
   },
   {
     id: 2,
