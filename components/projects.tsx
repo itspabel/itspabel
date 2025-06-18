@@ -7,11 +7,11 @@ import ProjectCard from "./project-card"
 const projects = [
   {
     id: 1,
-    title: "AI Chatbot",
-    description: "Intelligent conversational AI powered by DeepSeek R1 with real-time responses",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop",
-    tags: ["Next.js", "OpenRouter API", "DeepSeek", "Real-time"],
-    link: "/projects/chatbot",
+    title: "Bangladeshi Music Player",
+    description: "Minimalist web music player featuring top Bangladeshi artists with YouTube integration",
+    image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=2070&auto=format&fit=crop",
+    tags: ["React", "YouTube API", "Tailwind CSS", "Music"],
+    link: "/projects/music-player",
   },
   {
     id: 2,

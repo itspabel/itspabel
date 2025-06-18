@@ -12,8 +12,6 @@
     "@emotion/is-prop-valid": "latest",
     "@radix-ui/react-avatar": "latest",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
-    "@radix-ui/react-scroll-area": "latest",
-    "@radix-ui/react-separator": "latest",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-tabs": "^1.0.4",
     "@sendgrid/mail": "latest",
@@ -28,6 +26,7 @@
     "react-dom": "^18",
     "react-intersection-observer": "latest",
     "react-particles": "latest",
+    "react-youtube": "latest",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
     "tsparticles-slim": "latest",
@@ -38,11 +37,12 @@
     "@types/nodemailer": "^6.4.14",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "autoprefixer": "^10.4.17",
-    "eslint": "^8.56.0",
-    "eslint-config-next": "14.2.0",
+    "@types/react-youtube": "^7.6.2",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.0",
     "postcss": "^8.5",
-    "tailwindcss": "^3.4.1",
+    "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }
 }
