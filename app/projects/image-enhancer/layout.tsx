@@ -2,27 +2,38 @@ import type React from "react"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "AI Image Enhancer | Tasfiqul Alam",
-  description: "AI-powered image enhancement tool with upscaling, deblurring, and noise reduction capabilities.",
-  keywords: ["AI", "image enhancement", "upscaling", "deblur", "noise reduction", "photo editing"],
+  title: "AI Image Enhancer | Tasfiqul Alam Pabel",
+  description:
+    "Transform your images with AI-powered enhancement. Upscale, deblur, and reduce noise with cutting-edge technology.",
+  keywords: [
+    "AI image enhancer",
+    "image upscaling",
+    "photo enhancement",
+    "deblur images",
+    "noise reduction",
+    "AI photo editor",
+    "image processing",
+    "photo restoration",
+  ],
   openGraph: {
-    title: "AI Image Enhancer",
-    description: "Transform your images with AI-powered enhancement technology",
-    type: "website",
+    title: "AI Image Enhancer | Tasfiqul Alam Pabel",
+    description:
+      "Transform your images with AI-powered enhancement. Upscale, deblur, and reduce noise with cutting-edge technology.",
     images: [
       {
-        url: "/og-image-enhancer.png",
+        url: "https://cdn.jsdelivr.net/gh/itspabel/Images/ai-enhancer.jpg",
         width: 1200,
         height: 630,
-        alt: "AI Image Enhancer",
+        alt: "AI Image Enhancer Tool",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Image Enhancer",
-    description: "Transform your images with AI-powered enhancement technology",
-    images: ["/og-image-enhancer.png"],
+    title: "AI Image Enhancer | Tasfiqul Alam Pabel",
+    description:
+      "Transform your images with AI-powered enhancement. Upscale, deblur, and reduce noise with cutting-edge technology.",
+    images: ["https://cdn.jsdelivr.net/gh/itspabel/Images/ai-enhancer.jpg"],
   },
 }
 
