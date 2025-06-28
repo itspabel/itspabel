@@ -86,7 +86,10 @@ export const metadata: Metadata = {
       },
     ],
   },
-    generator: 'v0.dev'
+  verification: {
+    google: "dOd8U_i4Q5nydkcZp_haKmWSpiPD8RYynctnYPZ6lks",
+  },
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
@@ -97,6 +100,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta name="google-site-verification" content="dOd8U_i4Q5nydkcZp_haKmWSpiPD8RYynctnYPZ6lks" />
         <link
           rel="icon"
           href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/programmer-IPls7h7TIvYX6CfeeeNkJ9SFLAHzk8.png"
