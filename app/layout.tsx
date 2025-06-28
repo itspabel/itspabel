@@ -1,12 +1,12 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Geist as Geist_Sans } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 
-const inter = Inter({ subsets: ["latin"] })
+const geist = Geist_Sans({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Tasfiqul Alam Pabel | Full-Stack Developer & Photographer",
@@ -86,10 +86,7 @@ export const metadata: Metadata = {
       },
     ],
   },
-  verification: {
-    google: "dOd8U_i4Q5nydkcZp_haKmWSpiPD8RYynctnYPZ6lks",
-  },
-  generator: "v0.dev",
+    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -100,7 +97,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta name="google-site-verification" content="dOd8U_i4Q5nydkcZp_haKmWSpiPD8RYynctnYPZ6lks" />
         <link
           rel="icon"
           href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/programmer-IPls7h7TIvYX6CfeeeNkJ9SFLAHzk8.png"
@@ -108,7 +104,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#1a1a2e" />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
-      <body className={inter.className}>
+      <body className={geist.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} storageKey="pabel-theme">
           <div className="flex min-h-screen flex-col">
             <Navbar />
