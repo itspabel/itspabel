@@ -187,3 +187,6 @@ export default function Navbar() {
     </motion.header>
   )
 }
+
+// Named export for build/runtime importers
+export { Navbar }

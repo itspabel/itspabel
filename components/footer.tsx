@@ -73,3 +73,6 @@ export default function Footer() {
     </footer>
   )
 }
+
+// Named export for build/runtime importers
+export { Footer }

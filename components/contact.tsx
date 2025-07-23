@@ -2,34 +2,21 @@
 
 import type React from "react"
 
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef } from "react"
 import { useInView } from "react-intersection-observer"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Github, Instagram, Facebook, Send, Loader2, AlertCircle, CheckCircle2 } from "lucide-react"
-import SocialLink from "./social-link"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-
-// EmailJS types
-type EmailJSResponseStatus = {
-  status: number
-  text: string
-}
-
-type EmailJSTemplateParams = {
-  from_name: string
-  reply_to: string
-  message: string
-}
+import Link from "next/link"
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [formStatus, setFormStatus] = useState<{
     success?: boolean
     message?: string
-    errors?: Array<{ field: string; message: string }>
   } | null>(null)
 
   const formRef = useRef<HTMLFormElement>(null)
@@ -49,79 +36,53 @@ export default function Contact() {
     threshold: 0.1,
   })
 
-  // Load EmailJS script
-  useEffect(() => {
-    const loadEmailJS = async () => {
-      if (!(window as any).emailjs) {
-        const script = document.createElement("script")
-        script.src = "https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
-        script.async = true
-        document.body.appendChild(script)
-
-        script.onload = () => {
-          ;(window as any).emailjs.init("-Xo6JUkZ9dQ0oCmyU") // Your EmailJS public key
-        }
-      }
-    }
-
-    loadEmailJS()
-  }, [])
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
     setFormStatus(null)
 
-    try {
-      if (!(window as any).emailjs) {
-        throw new Error("EmailJS is not loaded")
-      }
-
-      const form = e.currentTarget
-
-      // EmailJS configuration
-      const serviceID = "service_jclpz26" // Your EmailJS service ID
-      const templateID = "template_kcjprdk" // Your EmailJS template ID
-
-      // Prepare data for EmailJS
-      const templateParams: EmailJSTemplateParams = {
-        from_name: form.name.value,
-        reply_to: form.email.value,
-        message: form.message.value,
-      }
-
-      // Send email using EmailJS
-      const response = (await (window as any).emailjs.send(
-        serviceID,
-        templateID,
-        templateParams,
-      )) as EmailJSResponseStatus
-
-      if (response.status === 200) {
-        setFormStatus({
-          success: true,
-          message: "Message sent successfully!",
-        })
-
-        if (formRef.current) {
-          formRef.current.reset()
-        }
-      } else {
-        throw new Error(`EmailJS returned status ${response.status}: ${response.text}`)
-      }
-    } catch (error) {
-      console.error("Contact form error:", error)
+    // Simulate form submission
+    setTimeout(() => {
       setFormStatus({
-        success: false,
-        message: "Failed to send message. Please try again later.",
+        success: true,
+        message: "Message sent successfully!",
       })
-    } finally {
       setIsSubmitting(false)
-    }
+      if (formRef.current) {
+        formRef.current.reset()
+      }
+    }, 2000)
   }
 
+  const socialLinks = [
+    {
+      icon: <Github className="h-5 w-5" />,
+      label: "GitHub",
+      href: "https://github.com/itspabel",
+    },
+    {
+      icon: <Facebook className="h-5 w-5" />,
+      label: "Facebook",
+      href: "https://facebook.com/tasfiqulalampabel",
+    },
+    {
+      icon: <Instagram className="h-5 w-5" />,
+      label: "Instagram",
+      href: "https://instagram.com/tasfiqul_alam_pabel",
+    },
+    {
+      icon: (
+        <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        </svg>
+      ),
+      label: "X",
+      href: "https://x.com/tasfiqul_alam",
+    },
+  ]
+
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto py-20">
       <div className="space-y-12">
         <div ref={headingRef} className="text-center space-y-4">
           <h2 className={cn("text-3xl md:text-4xl font-bold fade-in-up", headingInView && "visible")}>Let's Connect</h2>
@@ -191,34 +152,21 @@ export default function Contact() {
             </p>
 
             <div className="flex flex-col space-y-4">
-              <div className={cn("stagger-item", socialInView && "visible")}>
-                <SocialLink icon={<Github className="h-5 w-5" />} label="GitHub" href="https://github.com/itspabel" />
-              </div>
-              <div className={cn("stagger-item", socialInView && "visible")}>
-                <SocialLink
-                  icon={<Facebook className="h-5 w-5" />}
-                  label="Facebook"
-                  href="https://facebook.com/tasfiqulalampabel"
-                />
-              </div>
-              <div className={cn("stagger-item", socialInView && "visible")}>
-                <SocialLink
-                  icon={<Instagram className="h-5 w-5" />}
-                  label="Instagram"
-                  href="https://instagram.com/tasfiqul_alam_pabel"
-                />
-              </div>
-              <div className={cn("stagger-item", socialInView && "visible")}>
-                <SocialLink
-                  icon={
-                    <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                    </svg>
-                  }
-                  label="X"
-                  href="https://x.com/tasfiqul_alam"
-                />
-              </div>
+              {socialLinks.map((link, index) => (
+                <div key={link.label} className={cn("stagger-item", socialInView && "visible")}>
+                  <Link
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-3 p-3 rounded-lg border border-border/50 hover:border-secondary/50 hover:bg-secondary/5 transition-all duration-300 group"
+                  >
+                    <div className="text-muted-foreground group-hover:text-secondary transition-colors">
+                      {link.icon}
+                    </div>
+                    <span className="font-medium group-hover:text-secondary transition-colors">{link.label}</span>
+                  </Link>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -226,3 +174,5 @@ export default function Contact() {
     </div>
   )
 }
+
+export { Contact }

@@ -230,3 +230,6 @@ export default function CustomerReviews() {
     </div>
   )
 }
+
+// Named export for build/runtime importers
+export { CustomerReviews }

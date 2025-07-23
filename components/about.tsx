@@ -161,3 +161,6 @@ export default function About() {
     </div>
   )
 }
+
+// Named export for build/runtime importers
+export { About }

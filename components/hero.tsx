@@ -192,3 +192,6 @@ export default function Hero() {
     </div>
   )
 }
+
+// Named export for build/runtime importers
+export { Hero }
