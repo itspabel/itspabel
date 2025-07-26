@@ -8,11 +8,9 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Github, Instagram, Facebook, Send, AlertCircle, CheckCircle2 } from "lucide-react"
+import { Github, Instagram, Facebook, Send, Loader2, AlertCircle, CheckCircle2 } from "lucide-react"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import Link from "next/link"
-import { Quantum } from "ldrs/react"
-import "ldrs/react/Quantum.css"
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -84,102 +82,96 @@ export default function Contact() {
   ]
 
   return (
-    <section className="py-20">
-      <div className="container mx-auto px-4">
-        <div className="space-y-12">
-          <div ref={headingRef} className="text-center space-y-4">
-            <h2 className={cn("text-3xl md:text-4xl font-bold fade-in-up", headingInView && "visible")}>
-              Let's Connect
-            </h2>
-            <p
-              className={cn("text-muted-foreground max-w-2xl mx-auto fade-in-up", headingInView && "visible")}
-              style={{ transitionDelay: "0.2s" }}
-            >
-              Have a project in mind or just want to say hello? I'd love to hear from you.
-            </p>
+    <div className="container mx-auto py-20">
+      <div className="space-y-12">
+        <div ref={headingRef} className="text-center space-y-4">
+          <h2 className={cn("text-3xl md:text-4xl font-bold fade-in-up", headingInView && "visible")}>Let's Connect</h2>
+          <p
+            className={cn("text-muted-foreground max-w-2xl mx-auto fade-in-up", headingInView && "visible")}
+            style={{ transitionDelay: "0.2s" }}
+          >
+            Have a project in mind or just want to say hello? I'd love to hear from you.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div ref={formContainerRef} className={cn("space-y-8 slide-in-left", formInView && "visible")}>
+            <h3 className="text-xl font-semibold">Send a Message</h3>
+
+            {formStatus?.success ? (
+              <Alert className="bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800">
+                <CheckCircle2 className="h-5 w-5 text-green-600 dark:text-green-400" />
+                <AlertTitle className="text-green-800 dark:text-green-400">Message Sent!</AlertTitle>
+                <AlertDescription className="text-green-700 dark:text-green-500">
+                  Thanks for reaching out. I'll get back to you soon.
+                </AlertDescription>
+              </Alert>
+            ) : (
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
+                {formStatus?.success === false && (
+                  <Alert className="bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800">
+                    <AlertCircle className="h-5 w-5 text-red-600 dark:text-red-400" />
+                    <AlertTitle className="text-red-800 dark:text-red-400">Error</AlertTitle>
+                    <AlertDescription className="text-red-700 dark:text-red-500">{formStatus.message}</AlertDescription>
+                  </Alert>
+                )}
+
+                <div>
+                  <Input name="name" placeholder="Your Name" required disabled={isSubmitting} />
+                </div>
+
+                <div>
+                  <Input name="email" type="email" placeholder="Your Email" required disabled={isSubmitting} />
+                </div>
+
+                <div>
+                  <Textarea name="message" placeholder="Your Message" rows={5} required disabled={isSubmitting} />
+                </div>
+
+                <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="mr-2 h-4 w-4" />
+                      Send Message
+                    </>
+                  )}
+                </Button>
+              </form>
+            )}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div ref={formContainerRef} className={cn("space-y-8 slide-in-left", formInView && "visible")}>
-              <h3 className="text-xl font-semibold">Send a Message</h3>
+          <div ref={socialRef} className={cn("space-y-8 slide-in-right", socialInView && "visible")}>
+            <h3 className="text-xl font-semibold">Connect With Me</h3>
+            <p className="text-muted-foreground">
+              Let's build something beautiful together. Follow me on social media or check out my work.
+            </p>
 
-              {formStatus?.success ? (
-                <Alert className="bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800">
-                  <CheckCircle2 className="h-5 w-5 text-green-600 dark:text-green-400" />
-                  <AlertTitle className="text-green-800 dark:text-green-400">Message Sent!</AlertTitle>
-                  <AlertDescription className="text-green-700 dark:text-green-500">
-                    Thanks for reaching out. I'll get back to you soon.
-                  </AlertDescription>
-                </Alert>
-              ) : (
-                <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
-                  {formStatus?.success === false && (
-                    <Alert className="bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800">
-                      <AlertCircle className="h-5 w-5 text-red-600 dark:text-red-400" />
-                      <AlertTitle className="text-red-800 dark:text-red-400">Error</AlertTitle>
-                      <AlertDescription className="text-red-700 dark:text-red-500">
-                        {formStatus.message}
-                      </AlertDescription>
-                    </Alert>
-                  )}
-
-                  <div>
-                    <Input name="name" placeholder="Your Name" required disabled={isSubmitting} />
-                  </div>
-
-                  <div>
-                    <Input name="email" type="email" placeholder="Your Email" required disabled={isSubmitting} />
-                  </div>
-
-                  <div>
-                    <Textarea name="message" placeholder="Your Message" rows={5} required disabled={isSubmitting} />
-                  </div>
-
-                  <Button type="submit" className="w-full" disabled={isSubmitting}>
-                    {isSubmitting ? (
-                      <>
-                        <Quantum size="20" speed="1.75" color="currentColor" />
-                        <span className="ml-2">Sending...</span>
-                      </>
-                    ) : (
-                      <>
-                        <Send className="mr-2 h-4 w-4" />
-                        Send Message
-                      </>
-                    )}
-                  </Button>
-                </form>
-              )}
-            </div>
-
-            <div ref={socialRef} className={cn("space-y-8 slide-in-right", socialInView && "visible")}>
-              <h3 className="text-xl font-semibold">Connect With Me</h3>
-              <p className="text-muted-foreground">
-                Let's build something beautiful together. Follow me on social media or check out my work.
-              </p>
-
-              <div className="flex flex-col space-y-4">
-                {socialLinks.map((link, index) => (
-                  <div key={link.label} className={cn("stagger-item", socialInView && "visible")}>
-                    <Link
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center space-x-3 p-3 rounded-lg border border-border/50 hover:border-secondary/50 hover:bg-secondary/5 transition-all duration-300 group"
-                    >
-                      <div className="text-muted-foreground group-hover:text-secondary transition-colors">
-                        {link.icon}
-                      </div>
-                      <span className="font-medium group-hover:text-secondary transition-colors">{link.label}</span>
-                    </Link>
-                  </div>
-                ))}
-              </div>
+            <div className="flex flex-col space-y-4">
+              {socialLinks.map((link, index) => (
+                <div key={link.label} className={cn("stagger-item", socialInView && "visible")}>
+                  <Link
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-3 p-3 rounded-lg border border-border/50 hover:border-secondary/50 hover:bg-secondary/5 transition-all duration-300 group"
+                  >
+                    <div className="text-muted-foreground group-hover:text-secondary transition-colors">
+                      {link.icon}
+                    </div>
+                    <span className="font-medium group-hover:text-secondary transition-colors">{link.label}</span>
+                  </Link>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   )
 }
 

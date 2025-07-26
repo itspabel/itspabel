@@ -30,15 +30,15 @@ export default function ScrollToTop() {
 
   return (
     <Button
-      onClick={scrollToTop}
-      size="icon"
       className={cn(
-        "fixed bottom-8 right-8 z-50 rounded-full shadow-lg transition-all duration-300",
+        "fixed bottom-8 right-8 z-50 rounded-full p-3 shadow-lg transition-all duration-300",
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none",
       )}
+      onClick={scrollToTop}
+      size="icon"
+      aria-label="Scroll to top"
     >
       <ArrowUp className="h-4 w-4" />
-      <span className="sr-only">Scroll to top</span>
     </Button>
   )
 }
