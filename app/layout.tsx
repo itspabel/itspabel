@@ -8,34 +8,34 @@ import { Toaster } from "@/components/ui/toaster"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Tasfiqul Alam Pabel - Full-Stack Developer & Photographer",
+  title: "Tasfiqul Alam - Full Stack Developer & Photographer",
   description:
-    "Professional portfolio of Tasfiqul Alam Pabel, a full-stack developer and photographer based in Bangladesh. Specializing in React, Next.js, and modern web technologies.",
-  keywords: "Tasfiqul Alam Pabel, Full-Stack Developer, Photographer, React, Next.js, Web Development, Bangladesh",
-  authors: [{ name: "Tasfiqul Alam Pabel" }],
-  creator: "Tasfiqul Alam Pabel",
-  publisher: "Tasfiqul Alam Pabel",
+    "Portfolio of Tasfiqul Alam - Full Stack Developer specializing in React, Next.js, and modern web technologies. Also passionate about photography.",
+  keywords: "Tasfiqul Alam, Full Stack Developer, React, Next.js, Photography, Web Development",
+  authors: [{ name: "Tasfiqul Alam" }],
+  creator: "Tasfiqul Alam",
+  publisher: "Tasfiqul Alam",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://tasfiqulalampabel.com"),
+  metadataBase: new URL("https://tasfiqulalam.vercel.app"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Tasfiqul Alam Pabel - Full-Stack Developer & Photographer",
+    title: "Tasfiqul Alam - Full Stack Developer & Photographer",
     description:
-      "Professional portfolio showcasing web development projects and photography work by Tasfiqul Alam Pabel",
-    url: "https://tasfiqulalampabel.com",
-    siteName: "Tasfiqul Alam Pabel Portfolio",
+      "Portfolio of Tasfiqul Alam - Full Stack Developer specializing in React, Next.js, and modern web technologies.",
+    url: "https://tasfiqulalam.vercel.app",
+    siteName: "Tasfiqul Alam Portfolio",
     images: [
       {
-        url: "https://cdn.jsdelivr.net/gh/itspabel/Images/Pabel.jpg",
+        url: "/placeholder-user.jpg",
         width: 1200,
         height: 630,
-        alt: "Tasfiqul Alam Pabel - Full-Stack Developer & Photographer",
+        alt: "Tasfiqul Alam - Full Stack Developer",
       },
     ],
     locale: "en_US",
@@ -43,10 +43,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tasfiqul Alam Pabel - Full-Stack Developer & Photographer",
-    description: "Professional portfolio showcasing web development projects and photography work",
+    title: "Tasfiqul Alam - Full Stack Developer & Photographer",
+    description:
+      "Portfolio of Tasfiqul Alam - Full Stack Developer specializing in React, Next.js, and modern web technologies.",
     creator: "@tasfiqul_alam",
-    images: ["https://cdn.jsdelivr.net/gh/itspabel/Images/Pabel.jpg"],
+    images: ["/placeholder-user.jpg"],
   },
   robots: {
     index: true,
@@ -72,13 +73,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-        <meta name="google-site-verification" content="your-google-site-verification-code" />
-      </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
