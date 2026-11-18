@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="300" viewBox="0 0 1000 300">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#05070f"/><stop offset="0.55" stop-color="#0b1330"/><stop offset="1" stop-color="#04222b"/>
+</linearGradient>
+<linearGradient id="ac" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#67e8f9"/><stop offset="0.5" stop-color="#818cf8"/><stop offset="1" stop-color="#c084fc"/>
+</linearGradient>
+<radialGradient id="o1"><stop offset="0" stop-color="#22d3ee" stop-opacity="0.45"/><stop offset="1" stop-color="#22d3ee" stop-opacity="0"/></radialGradient>
+<radialGradient id="o2"><stop offset="0" stop-color="#818cf8" stop-opacity="0.45"/><stop offset="1" stop-color="#818cf8" stop-opacity="0"/></radialGradient>
+<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.045"/></pattern>
+</defs>
+<rect width="1000" height="300" rx="22" fill="url(#bg)"/>
+<rect width="1000" height="300" rx="22" fill="url(#grid)"/>
+<circle cx="170" cy="60" r="190" fill="url(#o1)"><animate attributeName="cx" values="170;260;170" dur="12s" repeatCount="indefinite"/></circle>
+<circle cx="860" cy="260" r="210" fill="url(#o2)"><animate attributeName="cy" values="260;190;260" dur="14s" repeatCount="indefinite"/></circle>
+<rect x="0.75" y="0.75" width="998.5" height="298.5" rx="21.5" fill="none" stroke="url(#ac)" stroke-opacity="0.55" stroke-width="1.5"/>
+<text x="64" y="86" font-family="'JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="15" fill="#67e8f9" letter-spacing="4">PORTFOLIO / ITSPABEL</text>
+<text x="62" y="160" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="64" font-weight="700" fill="url(#ac)">Tasfiqul Alam Pabel</text>
+<text x="64" y="204" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="22" fill="#cbd5e1" letter-spacing="1">Full-Stack Web &amp; Android Developer</text>
+<line x1="64" y1="232" x2="224" y2="232" stroke="url(#ac)" stroke-width="3" stroke-linecap="round"><animate attributeName="x2" values="124;380;124" dur="6s" repeatCount="indefinite"/></line>
+<text x="64" y="264" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="15" fill="#94a3b8">Secure by default. Fast by design. Bangla-first when it matters.</text>
+</svg>
